@@ -10,7 +10,7 @@ let objectsArray = [
     {int: 12, str: "dasWort2", bool: true},
     {int: 13, str: "dasWort3", bool: false},
     {int: 14, str: "dasWort4", bool: false},
-    {int: 15, str: "dasWort5", bool: true}
+    {int: 15, str: "dasWort5", bool: true, id: 12, sesdssdsdId: 21, isdsadaad: 12, asdfsdf: 21, sdfasdf: 12, sesasdfsadfId: 234, isadfasdfd: 12, sesasdfasdfaId: 21}
 ];
 
 console.log(numbersArray);
@@ -153,28 +153,35 @@ let citiesWithId = [
 ];
 // З'єднати в один об'єкт користувача та місто з відповідними "id" та "user_id" .
 //     Записати цей об'єкт в новий масив
-let usersAndCitiesObjectArray = [];
+let usersAndCitiesWithId = [];
 
-for (let user = 0; user < usersWithId.length; user++) {
-    let id = usersWithId[user].id;
-    for (let city = 0; city < citiesWithId.length; city++) {
-        let userId = citiesWithId[city].user_id;
-        if (id === userId) {
-            usersAndCitiesObjectArray[user] = usersWithId[user] + citiesWithId[city]; // пушить а не плюсовать
+for (let userId of usersWithId) {
+    for (let citiesId of citiesWithId) {
+        if (userId.id === citiesId.user_id) {
+            usersAndCitiesWithId.push({...userId, ...citiesId});
+            // usersAndCitiesWithId.add({userId[id]});
         }
     }
 }
 
-for (let element of usersAndCitiesObjectArray) {
-    console.log(element);
-}
+// for (let user of usersWithId) {
+//     for (let city of citiesWithId) {
+//         if (user.id === city.user_id) {
+//             let object = {};
+//             for (let cityKey in city) {
+//                 object.cityKey = city.cityKey;
+//             }
+//             for (let userKey in user) {
+//                 object.userKey = user.userKey;
+//             }
+//             usersAndCitiesWithId.push(object);
+//         }
+//     }
+// }
 
-console.log(usersAndCitiesObjectArray);
-console.log(usersWithId[1].name);
+console.log(usersAndCitiesWithId);
 
-for (let element of usersAndCitiesObjectArray) {
-    document.write(element);
-}
+
 
 // Example:
 //     let usersWithCities = [
