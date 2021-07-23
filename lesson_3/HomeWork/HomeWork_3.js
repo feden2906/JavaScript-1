@@ -2,13 +2,13 @@
 function SquareRectangle(side_a, side_b) {
     return side_a * side_b;
 }
-document.write(`<div>SquareRectangle (4, 5) = ${SquareRectangle(4, 5)}</div>`)
+document.write(`<div>SquareRectangle (4, 5) = ${SquareRectangle(4, 5)}</div>`)  // результат виконання записуй в змінну потім використовуй його
 
 
 // - створити функцію яка обчислює та повертає площу кола
 function SquareRound(radius) {
-    let Pi = 3.14;
-    return Pi * Math.pow(radius, 2)
+    // let Pi = 3.14;
+    return Math.PI * Math.pow(radius, 2)             // Math.PI використовуй замість 3.14
 }
 document.write(`<div>SquareRound(6) = ${SquareRound(6)}</div>`);
 
@@ -16,20 +16,21 @@ document.write(`<div>SquareRound(6) = ${SquareRound(6)}</div>`);
 // - створити функцію яка обчислює та повертає площу циліндру
 let SquareCylinder = function (radius, height) {
     let lengthRound = 2 * 3.14 * radius;
-    return SquareRound(radius) + SquareRectangle(lengthRound, height);  // как сократить точность до 2 знаков после запятой??
+    // return SquareRound(radius) + SquareRectangle(lengthRound, height);  // как сократить точность до 2 знаков после запятой??
+    return (SquareRound(radius) + SquareRectangle(lengthRound, height)).toFixed(2);     // так
 }
 document.write(`<div>SquareCylinder(6, 10) = ${SquareCylinder(6, 10)}</div>`);
 
 
 // - створити функцію яка приймає будь-яку кількість чисел, повертає найменьше, а виводить найбільше (Math використовувати заборонено);
 let minMaxNumbers = function minMaxNumbers() {
-    let min;
-    let max;
+    let min = arguments[0];
+    let max = arguments[0];
     for (let argument of arguments) {
-        if (!min && !max) {
-            min = argument;
-            max = argument;
-        }
+        // if (!min && !max) {                      // ------
+        //     min = argument;                      // це можна забрати якщо запишеш перше значення в змінну
+        //     max = argument;                      //
+        // }                                        // ------
         if (min > argument) {
             min = argument;
         }
