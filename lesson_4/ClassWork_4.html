@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+
+<script>
+    // - створити класс для об'єктів Client з полями id, name, surname , email, phone, order (поле є масивом зі списком товарів)
+    // створити пустий масив, наповнити його 10 об'єктами Client
+    // Взяти масив (Client []).Відсортувати його по кількості товарів в полі order по зростанню. (sort)
+    class Client {
+        constructor(age, name, phone, order) {
+            this.age = age;
+            this.name = name;
+            this.phone = phone;
+            this.order = order;
+        }
+    }
+
+    let clients = [
+        new Client(18, "Gogi", 234234, ["coffee"]),
+        new Client(22, "Estel", 696969, ["milk", "toys", "bal", "ice"]),
+        new Client(33, "Susanna", 234234, ["milk", "tee", "cookies"]),
+        new Client(44, "Harry", 234234, ["stick", "hat", "magick"]),
+        new Client(55, "John", 234234, ["coffee"]),
+        new Client(66, "Tom", 234234, ["milk", "coffee"]),
+        new Client(77, "Megan", 234234, ["milk", "fat"]),
+        new Client(345, "Givi", 234234, ["orange", "coffee"]),
+        new Client(45, "Ahmed", 234234, ["milk", "coffee"]),
+        new Client(23, "Diana", 234234, ["Book", "coffee", "tears"]),
+    ];
+
+    clients.sort(function (client1, client2) {return client1.order.length - client2.order.length});
+    console.log(clients);
+                            //Как не использовать КАВЫЧКИ при введении ИМЕНИ клиетна?
+                            //Как обозначить при вводе данных что "order" есть массив с перечнем строк?
+                            //Как отсортировать одновременно сперва по товарам, а потом по возрасту?
+
+
+
+    // - Створити функцію конструктор яка дозволяє створювати обєкти car, з властивостями модель, виробник, рік випуску,
+    //      максимальна швидкість, обьем двигуна. додати в обьєкт функції:
+    // -- drive () - яка виводить в консоль "їдемо зі швидкістю {максимальна швидкість} на годину"
+    // -- info () - яка виводить всю інформацію про автомобіль
+    // -- increaseMaxSpeed (newSpeed) - яка підвищує значення максимальної швидкості на значення newSpeed
+    // -- changeYear (newValue) - змінює рік випуску на значення newValue
+    // -- addDriver (driver) - приймає обєкт який "водій" з довільним набором полів, і доавляет його в поточний обєкт car
+    function CarFunc (model, year, maxSpeed) {
+        this.model = model;
+        this.year = year;
+        this.maxSpeed = maxSpeed;
+        this.driver = "none";
+
+        this.drive = function () {
+            console.log(`Go with speed ${this.maxSpeed} per hour!`);
+        }
+        this.info = function () {
+            console.log(`Model is ${this.model}, MaxSpeed is ${this.maxSpeed}, Year is ${this.year}. Driver is ${this.driver}`);
+            console.log("All info", this);
+        }
+        this.increaseMaxSpeed = function (addSpeed) {
+            this.maxSpeed += addSpeed;
+            console.log(`Increase maximal speed by ${addSpeed}.`)
+        }
+        this.changeYear = function (newYear) {
+            this.year = newYear;
+            console.log(`Changed year to ${newYear}.`)
+        }
+        this.addDriver = function (driver) {
+            this.driver = driver;
+            console.log("Adding a driver..");
+        }
+    }
+
+    let cars_1 = [
+        new CarFunc("BMV", 1990, 130),      //Как сделать что бы отображались подсказки о заполняемых значениях? (на практике)
+        new CarFunc("Mersedes", 2005, 160),
+        new CarFunc("Lada", 1987, 210),
+    ];
+
+    cars_1[0].info();
+    cars_1[0].increaseMaxSpeed(15);
+    cars_1[0].drive();
+    cars_1[0].changeYear(2020);
+    cars_1[0].info();
+
+    cars_1[1].addDriver({name: "Jaison Stathem", ranhe: "Killer", status: true});
+    cars_1[1].info();       // Как сделать что бы водитель нормально отображался в перечне?
+
+
+
+    // - (Те саме, тільки через клас)
+    // Створити клас який дозволяє створювати об'єкти car, з властивостями модель, виробник, рік випуску, максимальна швидкість,
+    // об'єм двигуна. додати в об'єкт функції:
+    // -- drive () - яка виводить в консоль "їдемо зі швидкістю {максимальна швидкість} на годину"
+    // -- info () - яка виводить всю інформацію про автомобіль
+    // -- increaseMaxSpeed (newSpeed) - яка підвищує значення максимальної швидкості на значення newSpeed
+    // -- changeYear (newValue) - змінює рік випуску на значення newValue
+    // -- addDriver (driver) - приймає об'єкт який "водій" з довільним набором полів, і доавляет його в поточний об'єкт car
+    class Car {
+        constructor(model, year, maxSpeed) {
+            this.model = model;
+            this.year = year;
+            this.maxSpeed = maxSpeed;
+        }
+
+        drive(){
+            console.log(`${this.model} drive with seed ${this.maxSpeed}.`);
+        }
+        info(){
+            console.log("All info is ", this);
+        }
+        addDriver(driver) {
+            this.driver = driver;
+            console.log(`Adding a new driver for ${this.model}.`);
+        }
+    }
+
+    let cars_2 = [
+        new Car("BMV", 1990, 130),
+        new Car("Mersedes", 2005, 160),
+        new Car("Lada", 1987, 210),
+    ];
+
+    cars_2[2].info()
+    cars_2[2].addDriver({name: "John Sena", prof: "driver", status: false});
+    cars_2[2].info()
+
+
+
+    // -створити класс/функцію конструктор попелюшка з полями ім'я, вік, розмір ноги. Створити 10 попелюшок , покласти їх в масив.
+    // Сторити об'єкт класу "принц" за допомоги класу який має поля ім'я, вік, туфелька яку він знайшов.
+    //     За допомоги циклу знайти яка попелюшка повинна бути з принцом.
+    //     Додатково, знайти необхідну попелюшку за допомоги функції масиву find та відповідного колбеку
+    class Girl {
+        constructor(name, age, feetSize) {
+            this.name = name;
+            this.age = age;
+            this.feetSize = feetSize;
+        }
+    }
+
+    class Boy {
+        constructor(name, age, wishSize) {
+            this.name = name;
+            this.age = age;
+            this.wishSize = wishSize;
+        }
+    }
+
+    let prinz = new Boy("Adam", 13, 43);
+    let girls = [
+        new Girl("Susanna", 35, 15),
+        new Girl("Jane", 56, 43),
+        new Girl("Mila", 18, 36),
+        new Girl("Anna", 26, 37),
+        new Girl("Joy", 8, 43),
+    ];
+
+    for (let girl of girls) {
+        if (girl.feetSize === prinz.wishSize) {
+            console.log(`${girl.name} should be with ${prinz.name}`);
+        }
+    }
+
+    let familyGirl = girls.find((girl)=>girl.feetSize===prinz.wishSize);
+    console.log(`${prinz.name} should make family with ${familyGirl.name}`);
+</script>
+</body>
+</html>

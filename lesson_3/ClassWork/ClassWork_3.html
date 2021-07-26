@@ -15,6 +15,7 @@
     /*---Сделанно в домашнем задании---*/
 
 
+
     // - створити функцію яка приймає масив чисел, сумує значення елементів масиву та повертає його. Приклад [1,2,10]->13
     // - створити функцію яка приймає масив чисел та повертає середнє арифметичне його значень.
     function sumArray (array) {
@@ -28,33 +29,40 @@
         }
         return result;
     }
+
     let array10 = [1,2,3,4,5,6,7,8,9,0];
     console.log(sumArray(array10));
 
     function sumMiddleArray (someArray) {
         return  sumArray(someArray) / someArray.length;
     }
+
     console.log(sumMiddleArray(array10));
+
 
 
     // - створити функцію яка заповнює масив рандомними числами
     // (цей код генерує рандомні числа в діапазоні від 0 до 100 - Math.round(Math.random()*100)) та виводить його.
     //         Для виведення використати попередню функцію.
     let randomArray = [];
+
     function fullRandomArray(array, countOfElement) {
         for (let i = 0; i < countOfElement; i++) {
             array[i] = Math.round(Math.random()*100);
             // console.log("Random element is - ", array[i]);
         }
     }
+
     fullRandomArray(randomArray, 10);
     console.log(randomArray);
+
 
 
     // - Створити функцію яка приймає масив будь яких объектів, та повертає масив ключів всіх обєктів
     // EXAMPLE:
     //         [{name: 'Dima', age: 13}, {model: 'Camry'}]  ===> [ name, age, model ]
     let array1 = [{name: 'Dima', age: 13}, {model: 'Camry'}];
+
     function keyOfObjectsInArray(someObjectArray) {
         let keyArray = [];
         for (let object of someObjectArray) {
@@ -66,27 +74,28 @@
         }
         return keyArray;
     }
+
     console.log(keyOfObjectsInArray(array1));
+
 
 
     //         - Створити функцію яка приймає масив будь яких объектів, та повертає масив значень всіх обєктів
     // EXAMPLE:
     //         [{name: 'Dima', age: 13}, {model: 'Camry'}]  ===> [ Dima, 13, Camry ]
     let array2 = [{name: 'Dima', age: 13}, {model: 'Camry'}];
+
     function valueOfObjectsInArray(array) {
         let valuesArray = [];
         for (let object of array) {
-            for (let objectElement in object) {
-                valuesArray.push(object[objectElement]);
+            for (let objectValue in object) {
+                valuesArray.push(object[objectValue]);
                 // console.log(object[objectElement]);
             }
         }
         return valuesArray;
     }
+
     console.log(valueOfObjectsInArray(array2));
-
-
-
 </script>
 
 </body>
