@@ -14,7 +14,6 @@ ulWidth[0].style.backgroundColor = 'gray';
 // c) робить шириниу всіх елементів з класом linkList шириною 50%
 let linkLists = document.getElementsByClassName('linkList');
 for (let link of linkLists) {
-    link.innerHTML = `<h2>gggggggg</h2>`
     // link.style = 'width: 50%'                                                                                <--|
     // link.style.width = '200px';         //Как сделать ширину 50% ?// Записать иначе и в документе CSS! Или так -|
     link.style.backgroundColor = 'yellow';
@@ -47,6 +46,7 @@ for (let aElement of aElements) {
         aElement.style.fontSize = '40px';
     }
 }
+
 
 // h) отримує всі елементи 'a' та додає їм клас element_XXX. Де XXX - текстовий контент елементу a
 for (let aElement of aElements) {
@@ -86,7 +86,7 @@ for (let pElement of pElements) {
 // m) отримати елементи з класом text2 та змінити їм текст на назву групи (mon-year)
 let text_2_Elements = document.getElementsByClassName('text2');
 for (let text_2_Element of text_2_Elements) {
-    text_2_Element.innerText = 'sgsdgdsfgdsgsdfg';          // текст на назву групи (mon-year) как это?
+    text_2_Element.innerText = 'some text for task...';          // текст на назву групи (mon-year) как это?
 }
 
 // changed !
