@@ -34,11 +34,14 @@
         new Client(23, "Diana", 234234, ["Book", "coffee", "tears"]),
     ];
 
-    clients.sort(function (client1, client2) {return client1.order.length - client2.order.length});
-    console.log(clients);
-                            //Как не использовать КАВЫЧКИ при введении ИМЕНИ клиетна?
-                            //Как обозначить при вводе данных что "order" есть массив с перечнем строк?
-                            //Как отсортировать одновременно сперва по товарам, а потом по возрасту?
+    // clients.sort(function (client1, client2) {return client1.order.length - client2.order.length});
+    // console.log('-----------------------------')
+    // console.log(clients);
+    // console.log('-----------------------------')
+                            //Как не использовать КАВЫЧКИ при введении ИМЕНИ клиетна?                                   // ніяк, це тип даних стрічка
+                            //Как обозначить при вводе данных что "order" есть массив с перечнем строк?                 // навіщо? все гуд, на ts це вже буде
+                            //Как отсортировать одновременно сперва по товарам, а потом по возрасту?                    // так  ---|
+    clients.sort((client1, client2) => client1.order.length - client2.order.length || client1.age - client2.age);       //  <------|
 
 
 
@@ -77,7 +80,7 @@
     }
 
     let cars_1 = [
-        new CarFunc("BMV", 1990, 130),      //Как сделать что бы отображались подсказки о заполняемых значениях? (на практике)
+        new CarFunc("BMV", 1990, 130),      //Как сделать что бы отображались подсказки о заполняемых значениях? (на практике)          // почати писати в js файлі
         new CarFunc("Mersedes", 2005, 160),
         new CarFunc("Lada", 1987, 210),
     ];
@@ -89,7 +92,7 @@
     cars_1[0].info();
 
     cars_1[1].addDriver({name: "Jaison Stathem", ranhe: "Killer", status: true});
-    cars_1[1].info();       // Как сделать что бы водитель нормально отображался в перечне?
+    cars_1[1].info();       // Как сделать что бы водитель нормально отображался в перечне?                             // не зрозумів питання
 
 
 
@@ -150,6 +153,10 @@
             this.age = age;
             this.wishSize = wishSize;
         }
+
+        findLove(arrayGirls) {
+            return arrayGirls.find(girl => girl.feetSize === this.wishSize);
+        }
     }
 
     let prinz = new Boy("Adam", 13, 43);
@@ -161,14 +168,18 @@
         new Girl("Joy", 8, 43),
     ];
 
-    for (let girl of girls) {
-        if (girl.feetSize === prinz.wishSize) {
-            console.log(`${girl.name} should be with ${prinz.name}`);
-        }
-    }
-
-    let familyGirl = girls.find((girl)=>girl.feetSize===prinz.wishSize);
+    let familyGirl = prinz.findLove(girls);
     console.log(`${prinz.name} should make family with ${familyGirl.name}`);
+
+
+    // for (let girl of girls) {                                                            // норм, але краще це зробити методом класу принц
+    //     if (girl.feetSize === prinz.wishSize) {                                          // ще косяк в тому що принц може знайти декілька принцес, виправ
+    //         console.log(`${girl.name} should be with ${prinz.name}`);
+    //     }
+    // }
+    //
+    // let familyGirl = girls.find((girl)=>girl.feetSize===prinz.wishSize);
+    // console.log(`${prinz.name} should make family with ${familyGirl.name}`);
 </script>
 </body>
 </html>

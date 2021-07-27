@@ -89,4 +89,5 @@ for (let text_2_Element of text_2_Elements) {
     text_2_Element.innerText = 'sgsdgdsfgdsgsdfg';          // текст на назву групи (mon-year) как это?
 }
 
+// changed !
 
