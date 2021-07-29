@@ -61,10 +61,13 @@ console.log('List of class by id: rules, moving in array.',[...document.getEleme
 let fc_rulesElements = document.getElementsByClassName('fc_rules');
 
 for (let fc_RulesElement of fc_rulesElements) {
-    fc_RulesElement.onclick = function () {
-        console.log(fc_RulesElement.innerText);
-        console.log('Any ander text..');
-    };
+    fc_RulesElement.addEventListener('click', () => {console.log(fc_RulesElement.innerText)});
+    fc_RulesElement.addEventListener('click', () => {console.log('Any ander text...')});
+
+    // fc_RulesElement.onclick = function () {
+    //     console.log(this.innerText);
+    //     console.log('Any ander text..');
+    // };
 }
 
 
