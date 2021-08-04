@@ -26,7 +26,7 @@ fetch(jsonPlaceHolder + usersAPI)
 
         let text = document.createElement('p');
         text.innerText = `From - ${user.address.street}.`;      //Почему не выводит адресс улицы?
-        text.appendChild(divUser);
+        divUser.appendChild(text);                              // Проблема була тут!
 
         document.body.appendChild(divUser);
     }
