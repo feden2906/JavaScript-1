@@ -68,5 +68,6 @@ async function makeHappy(money) {
         console.log(`something wrong: ${resolve}`);
     }
 }
-
 makeHappy(600).then();
+
+
