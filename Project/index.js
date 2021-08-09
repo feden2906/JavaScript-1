@@ -13,9 +13,10 @@ fetch('https://jsonplaceholder.typicode.com/users')
 
         let button = document.createElement('button');
         button.innerText = 'Details..';
+
         button.addEventListener('click', () => {
             console.log(`User ${user.id} is chosen.`);
-            console.log(`Sending data is ${JSON.stringify(user.id)}...`);
+            console.log(`Sending data is : userId=${JSON.stringify(user.id)}...`);
             // window.location.href = `user_details.html?userId=${JSON.stringify(user.id)}`;
             setTimeout(() => {
                 window.location.href = `user_details.html?userId=${JSON.stringify(user.id)}`;
