@@ -18,9 +18,9 @@ fetch('https://jsonplaceholder.typicode.com/users')
             console.log(`User ${user.id} is chosen.`);
             console.log(`Sending data is : userId=${JSON.stringify(user.id)}...`);
             // window.location.href = `user_details.html?userId=${JSON.stringify(user.id)}`;
-            setTimeout(() => {
-                window.location.href = `user_details.html?userId=${JSON.stringify(user.id)}`;
-            }, 3000);
+            // setTimeout(() => {                                                              // навіщо?
+            location.href = `user_details.html?userId=${JSON.stringify(user.id)}`;
+            // }, 3000);
         });
 
         userDiv.append(title, button);
