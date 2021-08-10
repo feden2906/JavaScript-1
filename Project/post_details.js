@@ -1,6 +1,6 @@
-let getUserID = new URL(location).searchParams.get('userID');
+let getUserID = new URL(location).searchParams.get('userID');   // В чем проблемма?
 let userID = JSON.parse(getUserID);
-let getPostID = new URL(location).searchParams.get('postID');
+let getPostID = new URL(location).searchParams.get('postID');   // Читнуть про эту функцию.
 let postID = JSON.parse(getPostID);
 
 

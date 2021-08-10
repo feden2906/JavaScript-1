@@ -17,10 +17,10 @@ fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)
     let userUl = document.createElement('ul');
 
     for (let key in user) {
-        let objectInUser = typeof user[key] === 'object';
+        let objectInUser = typeof user[key] === 'object';   // Если заменить на user.key ему будет ок?
 
         if (objectInUser) {             // Как сделать для этого рекурсию?
-            let object = user[key];
+            let object = user[key];     // Какая проблема, чего оно хочет?
             let objectUl = document.createElement('ul');
 
             for (let value in object) {
